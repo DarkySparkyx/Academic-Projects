@@ -1,0 +1,4 @@
+"C:\Users\mjasi\AppData\Local\Programs\CLion Nova\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Users/mjasi/AppData/Local/Programs/CLion Nova/bin/ninja/win/x64/ninja.exe" -G Ninja -S "C:\Users\mjasi\Desktop\Academic-Projects\2 SEMESTER\Object Oriented Programming\Projects\CPP_PROJ1" -B "C:\Users\mjasi\Desktop\Academic-Projects\2 SEMESTER\Object Oriented Programming\Projects\CPP_PROJ1\cmake-build-debug"
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/Users/mjasi/Desktop/Academic-Projects/2 SEMESTER/Object Oriented Programming/Projects/CPP_PROJ1/cmake-build-debug
