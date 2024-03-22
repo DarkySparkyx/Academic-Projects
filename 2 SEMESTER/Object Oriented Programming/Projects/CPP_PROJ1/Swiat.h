@@ -6,10 +6,11 @@ private:
     //WYMIARY SWIATA
     int x;
     int y;
+    void rysujPlansze() const;
 public:
     Swiat();
     void wykonajTure();
-    void rysujSwiat();
+    void rysujSwiat() const;
 
 };
 
