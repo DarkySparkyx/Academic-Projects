@@ -61,6 +61,24 @@ build CMakeFiles/CPP_PROJ1.dir/Swiat.cpp.obj: CXX_COMPILER__CPP_PROJ1_unscanned_
   OBJECT_DIR = CMakeFiles\CPP_PROJ1.dir
   OBJECT_FILE_DIR = CMakeFiles\CPP_PROJ1.dir
 
+build CMakeFiles/CPP_PROJ1.dir/organizm.cpp.obj: CXX_COMPILER__CPP_PROJ1_unscanned_Debug C$:/Users/mjasi/Desktop/Academic-Projects/2$ SEMESTER/Object$ Oriented$ Programming/Projects/CPP_PROJ1/organizm.cpp || cmake_object_order_depends_target_CPP_PROJ1
+  DEP_FILE = CMakeFiles\CPP_PROJ1.dir\organizm.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\CPP_PROJ1.dir
+  OBJECT_FILE_DIR = CMakeFiles\CPP_PROJ1.dir
+
+build CMakeFiles/CPP_PROJ1.dir/Zwierze.cpp.obj: CXX_COMPILER__CPP_PROJ1_unscanned_Debug C$:/Users/mjasi/Desktop/Academic-Projects/2$ SEMESTER/Object$ Oriented$ Programming/Projects/CPP_PROJ1/Zwierze.cpp || cmake_object_order_depends_target_CPP_PROJ1
+  DEP_FILE = CMakeFiles\CPP_PROJ1.dir\Zwierze.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\CPP_PROJ1.dir
+  OBJECT_FILE_DIR = CMakeFiles\CPP_PROJ1.dir
+
+build CMakeFiles/CPP_PROJ1.dir/Wilk.cpp.obj: CXX_COMPILER__CPP_PROJ1_unscanned_Debug C$:/Users/mjasi/Desktop/Academic-Projects/2$ SEMESTER/Object$ Oriented$ Programming/Projects/CPP_PROJ1/Wilk.cpp || cmake_object_order_depends_target_CPP_PROJ1
+  DEP_FILE = CMakeFiles\CPP_PROJ1.dir\Wilk.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\CPP_PROJ1.dir
+  OBJECT_FILE_DIR = CMakeFiles\CPP_PROJ1.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CPP_PROJ1
@@ -69,7 +87,7 @@ build CMakeFiles/CPP_PROJ1.dir/Swiat.cpp.obj: CXX_COMPILER__CPP_PROJ1_unscanned_
 #############################################
 # Link the executable CPP_PROJ1.exe
 
-build CPP_PROJ1.exe: CXX_EXECUTABLE_LINKER__CPP_PROJ1_Debug CMakeFiles/CPP_PROJ1.dir/main.cpp.obj CMakeFiles/CPP_PROJ1.dir/Swiat.cpp.obj
+build CPP_PROJ1.exe: CXX_EXECUTABLE_LINKER__CPP_PROJ1_Debug CMakeFiles/CPP_PROJ1.dir/main.cpp.obj CMakeFiles/CPP_PROJ1.dir/Swiat.cpp.obj CMakeFiles/CPP_PROJ1.dir/organizm.cpp.obj CMakeFiles/CPP_PROJ1.dir/Zwierze.cpp.obj CMakeFiles/CPP_PROJ1.dir/Wilk.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\CPP_PROJ1.dir

@@ -5,4 +5,10 @@ set(CMAKE_CXX_STANDARD 26)
 
 add_executable(CPP_PROJ1 main.cpp
         Swiat.cpp
-        Swiat.h)
+        Swiat.h
+        organizm.cpp
+        organizm.h
+        Zwierze.cpp
+        Zwierze.h
+        Wilk.cpp
+        Wilk.h)

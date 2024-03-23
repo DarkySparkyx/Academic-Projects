@@ -1,5 +1,6 @@
 #include "Swiat.h"
 #include <iostream>
+#include <windows.h>
 
 using namespace std;
 
@@ -17,9 +18,11 @@ Swiat::Swiat() {
     this->y=y;
 }
 
-void Swiat::rysujPlansze() const
+void Swiat::rysujSwiat() const
 {
-    for(int i=0;i<x;i++) {
+    //WYSWIETL 1 LINIE
+    for(int i=0;i<x;i++)
+    {
         if(i<9) {
             cout << " " << i+1 << " ";
         }
@@ -28,18 +31,26 @@ void Swiat::rysujPlansze() const
         }
     }
     cout << endl;
+    //WYSWIETL GÓRNĄ GRANICE
     for(int i=0;i<x;i++) {
         cout << "  V";
     }
     cout << endl;
+    //WYSWIETL LEWY BRZEG
     for(int i=0;i<y;i++)
-        {
-            cout << i+1 << ">" << "LOOOOLLLL" << endl;
-        }
+    {
+        cout << i+1 << ">" << endl;
+    }
+
+
 }
 
-void Swiat::rysujSwiat() const {
-    rysujPlansze();
+int Swiat::getX() {
+    return x;
+}
+
+int Swiat::getY() {
+    return y;
 }
 
 
