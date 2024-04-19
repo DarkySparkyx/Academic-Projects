@@ -1,6 +1,6 @@
-#ifndef SWIAT_H
-#define SWIAT_H
+#include <iostream>
 
+using namespace std;
 class Swiat {
 private:
     //WYMIARY SWIATA
@@ -14,6 +14,3 @@ public:
     int getY();
 
 };
-
-
-#endif //SWIAT_H

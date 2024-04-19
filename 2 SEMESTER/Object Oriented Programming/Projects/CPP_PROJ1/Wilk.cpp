@@ -1,5 +1,4 @@
 #include "Wilk.h"
-#include <iostream>
 
 using namespace std;
 

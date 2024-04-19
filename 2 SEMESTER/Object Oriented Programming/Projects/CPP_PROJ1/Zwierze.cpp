@@ -1,12 +1,10 @@
 #include "Zwierze.h"
-#include <iostream>
 
 using namespace std;
 
-Zwierze::Zwierze(int inicjatywa, int sila, Swiat *swiat, string nazwa, char symbol) : Organizm(inicjatywa,sila,swiat)
+Zwierze::Zwierze(int inicjatywa, int sila, Swiat *swiat, string nazwa, char symbol) : Organizm(inicjatywa,sila,swiat,nazwa,symbol)
 {
-    this->nazwa=nazwa;
-    this->symbol=symbol;
+
 }
 
 void Zwierze::akcja() {
@@ -19,7 +17,3 @@ void Zwierze::akcja() {
     positionX=x;
     positionY=y;
 }
-
-
-
-
