@@ -1,0 +1,143 @@
+# depslib dependency file v1.0
+1713808707 source:c:\users\mjasi\desktop\po projekt\cpp\swiat.cpp
+	<algorithm>
+	<string>
+	"Swiat.h"
+	<conio.h>
+	<fstream>
+	"Wilk.h"
+	"Lis.h"
+	"Owca.h"
+	"Zolw.h"
+	"Antylopa.h"
+	"Czlowiek.h"
+	"Trawa.h"
+	"BarszczSosnowskiego.h"
+	"Guarana.h"
+	"Mlecz.h"
+	"WilczeJagody.h"
+
+1713796817 c:\users\mjasi\desktop\po projekt\cpp\swiat.h
+	<iostream>
+	<list>
+	"Organizm.h"
+
+1713803052 source:c:\users\mjasi\desktop\po projekt\cpp\main.cpp
+	<iostream>
+	"Swiat.h"
+	<ctime>
+	<string>
+
+1713799934 source:c:\users\mjasi\desktop\po projekt\cpp\organizm.cpp
+	"Organizm.h"
+	"Swiat.h"
+	<windows.h>
+	<algorithm>
+	<sstream>
+
+1713520850 source:c:\users\mjasi\desktop\po projekt\cpp\wilk.cpp
+	<iostream>
+	"Wilk.h"
+
+1713508156 source:c:\users\mjasi\desktop\po projekt\cpp\zwierze.cpp
+	"Zwierze.h"
+	"Swiat.h"
+	<algorithm>
+	<string>
+
+1713798867 c:\users\mjasi\desktop\po projekt\cpp\organizm.h
+	<iostream>
+	<windows.h>
+	<cstdlib>
+	<list>
+
+1712313384 c:\users\mjasi\desktop\po projekt\cpp\organizm.cpp
+
+1713520659 c:\users\mjasi\desktop\po projekt\cpp\wilk.h
+	<iostream>
+	"Zwierze.h"
+
+1712313384 c:\users\mjasi\desktop\po projekt\cpp\wilk.cpp
+
+1713507907 c:\users\mjasi\desktop\po projekt\cpp\zwierze.h
+	<iostream>
+	"Organizm.h"
+
+1712313384 c:\users\mjasi\desktop\po projekt\cpp\zwierze.cpp
+
+1713512705 source:c:\users\mjasi\desktop\po projekt\cpp\roslina.cpp
+	"Roslina.h"
+	<iostream>
+
+1713510618 c:\users\mjasi\desktop\po projekt\cpp\roslina.h
+	"Organizm.h"
+	"Swiat.h"
+
+1713262079 source:c:\users\mjasi\desktop\po projekt\cpp\trawa.cpp
+
+1713808665 c:\users\mjasi\desktop\po projekt\cpp\trawa.h
+	"Roslina.h"
+	"Swiat.h"
+
+1713520522 source:c:\users\mjasi\desktop\po projekt\cpp\antylopa.cpp
+	<iostream>
+	"Antylopa.h"
+
+1713808651 source:c:\users\mjasi\desktop\po projekt\cpp\barszczsosnowskiego.cpp
+	"BarszczSosnowskiego.h"
+
+1713808500 source:c:\users\mjasi\desktop\po projekt\cpp\guarana.cpp
+	"Guarana.h"
+
+1713519864 source:c:\users\mjasi\desktop\po projekt\cpp\lis.cpp
+	"Lis.h"
+	<iostream>
+
+1713519847 c:\users\mjasi\desktop\po projekt\cpp\lis.h
+	"Zwierze.h"
+
+1713808459 source:c:\users\mjasi\desktop\po projekt\cpp\mlecz.cpp
+	"Mlecz.h"
+
+1713808544 source:c:\users\mjasi\desktop\po projekt\cpp\wilczejagody.cpp
+	"WilczeJagody.h"
+
+1713520005 source:c:\users\mjasi\desktop\po projekt\cpp\owca.cpp
+	<iostream>
+	"Owca.h"
+
+1713520404 c:\users\mjasi\desktop\po projekt\cpp\owca.h
+	"Zwierze.h"
+
+1713804935 source:c:\users\mjasi\desktop\po projekt\cpp\zolw.cpp
+	"Zolw.h"
+	<iostream>
+
+1713623646 c:\users\mjasi\desktop\po projekt\cpp\zolw.h
+	"Zwierze.h"
+
+1713520540 c:\users\mjasi\desktop\po projekt\cpp\antylopa.h
+	"Zwierze.h"
+
+1713802605 source:c:\users\mjasi\desktop\po projekt\cpp\czlowiek.cpp
+	<iostream>
+	"Czlowiek.h"
+	"Swiat.h"
+	<conio.h>
+	<sstream>
+
+1713798880 c:\users\mjasi\desktop\po projekt\cpp\czlowiek.h
+	"Zwierze.h"
+
+1713808665 c:\users\mjasi\desktop\po projekt\cpp\barszczsosnowskiego.h
+	"Roslina.h"
+
+1713808501 c:\users\mjasi\desktop\po projekt\cpp\guarana.h
+	"Roslina.h"
+
+1713808502 c:\users\mjasi\desktop\po projekt\cpp\mlecz.h
+	"Roslina.h"
+
+1713808545 c:\users\mjasi\desktop\po projekt\cpp\wilczejagody.h
+	"Roslina.h"
+
