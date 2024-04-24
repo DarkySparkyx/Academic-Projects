@@ -19,6 +19,8 @@ public:
     //KONSTRUKTOR
     Swiat();
     Swiat(FILE* plik);
+    //DESTRUKTOR
+    ~Swiat();
     //METODY OPERUJACE NA LISCIE OGRANIZMOW
     bool CzyPoleZajete(int newX,int newY);
     void DodajOrganizm(Organizm* org);

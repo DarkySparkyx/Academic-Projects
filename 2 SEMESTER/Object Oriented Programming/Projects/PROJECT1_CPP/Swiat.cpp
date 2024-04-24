@@ -25,10 +25,20 @@ Swiat::Swiat()
     cout << "Podaj wymiary planszy, na ktorej chcesz przeprowadzić symulacje" << endl;
     cout << " X: ";
     cin >> this->x;
+    while(x<5 || x>30)
+    {
+        cout << "Zly wymiar" << endl;
+        cin >> this->x;
+    }
+
     cout << " Y: ";
     cin >> this->y;
+    while(y<5)
+    {
+        cout << "Zly wymiar" << endl;
+        cin >> this->y;
+    }
     tura=1;
-
     for(int i=0; i<2; i++)
     {
         DodajOrganizm(new Owca(0,0,this));
@@ -44,6 +54,10 @@ Swiat::Swiat()
     }
     DodajOrganizm(new Czlowiek(0,0,this));
     Sprzatacz();
+
+    rysujSwiat();
+    getchar();
+    getchar();
 }
 
 Swiat::Swiat(FILE* plik)
@@ -300,6 +314,7 @@ void Swiat::Sprzatacz()
     {
         if(!(*it)->alive)
         {
+            delete (*it);
             it=organizmy.erase(it);
         }
         else
@@ -308,4 +323,13 @@ void Swiat::Sprzatacz()
         }
     }
     organizmy.sort(Organizm::prio);
+}
+
+Swiat::~Swiat()
+{
+    for(auto org : organizmy)
+    {
+        delete org;
+    }
+    delete this;
 }

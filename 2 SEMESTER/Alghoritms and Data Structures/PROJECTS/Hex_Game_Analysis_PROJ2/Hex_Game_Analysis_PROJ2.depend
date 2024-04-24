@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1713959394 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\hex_game_analysis_proj2\hex.cpp
+	"Hex.h"
+	<string>
+
+1713957625 c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\hex_game_analysis_proj2\hex.h
+	<iostream>
+	<algorithm>
+
+1713959497 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\hex_game_analysis_proj2\main.cpp
+	<iostream>
+	<string>
+	"Hex.h"
+	<fstream>
+

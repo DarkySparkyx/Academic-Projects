@@ -12,9 +12,8 @@ Czlowiek::Czlowiek(int x, int y, Swiat* world) : Zwierze(x,y,5,4,'C',"Czlowiek",
 
 void Czlowiek::akcja()
 {
+    world->rysujSwiat();
     world->WyswietlLog();
-    WyswietlInterfejs();
-
     if(czyUmiejetnoscAktywna)
     {
         if(czasTrwaniaUmiejetnosci<=3)
@@ -37,6 +36,7 @@ void Czlowiek::akcja()
     {
         cooldown--;
     }
+    WyswietlInterfejs();
     char znak;
     int newX=this->X;
     int newY=this->Y;
@@ -131,7 +131,7 @@ void Czlowiek::WyswietlInterfejs()
     Swiat::gotoxy(world->getX()*3+5,1);
     cout << "---> INTERFEJS CZLOWIEKA <----" << endl;
     Swiat::gotoxy(world->getX()*3+9,3);
-    cout << "Aktualna pozycja: " << this->GetX() << " " << this->GetY() << endl;
+    cout << "Aktualna pozycja: " << this->GetX() << " " << this->GetY() << " " << sila << endl;
     Swiat::gotoxy(world->getX()*3+9,4);
     cout << "STATUS UMIEJETNOSCI: ";
     if(czyUmiejetnoscAktywna)

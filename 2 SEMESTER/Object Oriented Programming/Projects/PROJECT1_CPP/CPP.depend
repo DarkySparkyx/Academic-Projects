@@ -141,3 +141,139 @@
 1713808545 c:\users\mjasi\desktop\po projekt\cpp\wilczejagody.h
 	"Roslina.h"
 
+1713520522 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\antylopa.cpp
+	<iostream>
+	"Antylopa.h"
+
+1713520540 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\antylopa.h
+	"Zwierze.h"
+
+1713507907 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\zwierze.h
+	<iostream>
+	"Organizm.h"
+
+1713798867 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\organizm.h
+	<iostream>
+	<windows.h>
+	<cstdlib>
+	<list>
+
+1713808651 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\barszczsosnowskiego.cpp
+	"BarszczSosnowskiego.h"
+
+1713943711 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\barszczsosnowskiego.h
+	"Roslina.h"
+
+1713510618 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\roslina.h
+	"Organizm.h"
+	"Swiat.h"
+
+1713946479 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\swiat.h
+	<iostream>
+	<list>
+	"Organizm.h"
+
+1713944535 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\czlowiek.cpp
+	<iostream>
+	"Czlowiek.h"
+	"Swiat.h"
+	<conio.h>
+	<sstream>
+
+1713798880 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\czlowiek.h
+	"Zwierze.h"
+
+1713808500 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\guarana.cpp
+	"Guarana.h"
+
+1713943698 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\guarana.h
+	"Roslina.h"
+
+1713519864 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\lis.cpp
+	"Lis.h"
+	<iostream>
+
+1713519847 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\lis.h
+	"Zwierze.h"
+
+1713944447 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\main.cpp
+	<iostream>
+	"Swiat.h"
+	<ctime>
+	<string>
+
+1713808459 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\mlecz.cpp
+	"Mlecz.h"
+
+1713808502 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\mlecz.h
+	"Roslina.h"
+
+1713799934 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\organizm.cpp
+	"Organizm.h"
+	"Swiat.h"
+	<windows.h>
+	<algorithm>
+	<sstream>
+
+1713520005 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\owca.cpp
+	<iostream>
+	"Owca.h"
+
+1713520404 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\owca.h
+	"Zwierze.h"
+
+1713943924 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\roslina.cpp
+	"Roslina.h"
+	<iostream>
+
+1713946498 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\swiat.cpp
+	<algorithm>
+	<string>
+	"Swiat.h"
+	<conio.h>
+	<fstream>
+	"Wilk.h"
+	"Lis.h"
+	"Owca.h"
+	"Zolw.h"
+	"Antylopa.h"
+	"Czlowiek.h"
+	"Trawa.h"
+	"BarszczSosnowskiego.h"
+	"Guarana.h"
+	"Mlecz.h"
+	"WilczeJagody.h"
+
+1713520659 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\wilk.h
+	<iostream>
+	"Zwierze.h"
+
+1713623646 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\zolw.h
+	"Zwierze.h"
+
+1713808665 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\trawa.h
+	"Roslina.h"
+	"Swiat.h"
+
+1713808545 c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\wilczejagody.h
+	"Roslina.h"
+
+1713262079 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\trawa.cpp
+
+1713808544 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\wilczejagody.cpp
+	"WilczeJagody.h"
+
+1713520850 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\wilk.cpp
+	<iostream>
+	"Wilk.h"
+
+1713804935 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\zolw.cpp
+	"Zolw.h"
+	<iostream>
+
+1713508156 source:c:\users\mjasi\desktop\academic-projects\2 semester\object oriented programming\projects\project1_cpp\zwierze.cpp
+	"Zwierze.h"
+	"Swiat.h"
+	<algorithm>
+	<string>
+

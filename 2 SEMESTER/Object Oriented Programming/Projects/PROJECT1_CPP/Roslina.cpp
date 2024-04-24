@@ -38,6 +38,7 @@ void Roslina::kolizja(Organizm* atakujacyOrganizm)
     {
         world->DodajDoLog(atakujacyOrganizm->DoStringa() + "zjada " + this->DoStringa());
         atakujacyOrganizm->SetPozycja(X,Y);
+        wplywRosliny(atakujacyOrganizm);
         this->zabij();
     }
     else

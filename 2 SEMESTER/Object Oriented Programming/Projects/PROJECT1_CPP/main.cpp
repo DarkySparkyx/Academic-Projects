@@ -16,7 +16,6 @@ int main()
     {
         Swiat gra;
         gra.rysujSwiat();
-        gra.rysujSwiat();
         while(true)
         {
             gra.wykonajTure();
