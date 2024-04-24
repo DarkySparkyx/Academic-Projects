@@ -186,3 +186,187 @@ void Hex::clearWasVisited()
         }
     }
 }
+
+bool Hex::isGameOverForRed()
+{
+    if(isBoardCorrect())
+    {
+        for(int i=0; i<boardSize; i++)
+        {
+            if(isGameOver(0,i,RED))
+            {
+                clearWasVisited();
+                return true;
+            }
+        }
+    }
+    clearWasVisited();
+    return false;
+}
+
+bool Hex::isGameOverForBlue()
+{
+    if(isBoardCorrect())
+    {
+        for(int i=0; i<getBoardSize(); i++)
+        {
+            if(isGameOver(i,boardSize-1,BLUE))
+            {
+                clearWasVisited();
+                return true;
+            }
+        }
+    }
+    clearWasVisited();
+    return false;
+}
+
+bool Hex::isBoardPossible()
+{
+    if(isBoardCorrect())
+    {
+        if(isGameOverForRed())
+        {
+            if(isGameOverForBlue() || redPawnNumber-1!=bluePawnNumber)
+            {
+                return false;
+            }
+            for(int i=0; i<boardSize; i++)
+            {
+                for(int j=0; j<boardSize; j++)
+                {
+                    if(board[j][i]==RED)
+                    {
+                        board[j][i]=EMPTY;
+                        if(!isGameOverForRed())
+                        {
+                            return true;
+                        }
+                        board[j][i]=RED;
+                    }
+                }
+            }
+            return false;
+        }
+        else if(isGameOverForBlue())
+        {
+            if(redPawnNumber!=bluePawnNumber)
+            {
+                return false;
+            }
+            for(int i=0; i<boardSize; i++)
+            {
+                for(int j=0; j<boardSize; j++)
+                {
+                    if(board[j][i]==BLUE)
+                    {
+                        board[j][i]=EMPTY;
+                        if(!isGameOverForBlue())
+                        {
+                            return true;
+                        }
+                        board[j][i]=BLUE;
+                    }
+                }
+            }
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool Hex::canRedWinInOneMoveWithNaive()
+{
+    for(int i=0; i<boardSize; i++)
+    {
+        for(int j=0; j<boardSize; j++)
+        {
+            if(board[j][i]==EMPTY)
+            {
+                board[j][i]=RED;
+                if(isGameOverForRed())
+                {
+                    return true;
+                }
+                board[j][i]=EMPTY;
+            }
+        }
+    }
+    return false;
+}
+
+bool Hex::canBlueWinInOneMoveWithNaive()
+{
+    for(int i=0; i<boardSize; i++)
+    {
+        for(int j=0; j<boardSize; j++)
+        {
+            if(board[j][i]==EMPTY)
+            {
+                board[j][i]=BLUE;
+                if(isGameOverForBlue())
+                {
+                    return true;
+                }
+                board[j][i]=EMPTY;
+            }
+        }
+    }
+    return false;
+}
+
+bool Hex::canRedWinInTwoMovesWithNaive()
+{
+    Field pierwszy;
+    Field drugi;
+
+    if(redPawnNumber==bluePawnNumber)
+    {
+        pierwszy=RED;
+        drugi=BLUE;
+    }
+    else
+    {
+        pierwszy=BLUE;
+        drugi=RED;
+    }
+
+    for(int i=0; i<boardSize; i++)
+    {
+        for(int j=0; j<boardSize; j++)
+        {
+            if(board[j][i]==EMPTY)
+            {
+
+            }
+        }
+    }
+    return false;
+}
+
+bool Hex::canBlueWinInTwoMovesWithNaive()
+{
+    for(int i=0; i<boardSize; i++)
+    {
+        for(int j=0; j<boardSize; j++)
+        {
+            if(board[j][i]==EMPTY)
+            {
+                board[j][i]=BLUE;
+                if(canBlueWinInOneMoveWithNaive())
+                {
+                    return true;
+                }
+                board[j][i]=EMPTY;
+            }
+        }
+    }
+    return false;
+}

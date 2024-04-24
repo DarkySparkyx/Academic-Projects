@@ -11,7 +11,7 @@ enum Field
 };
 class Hex
 {
-private:
+public:
     Field board[11][11];
     int boardSize;
     int redPawnNumber;
@@ -24,8 +24,15 @@ public:
     int getBoardSize();
     int getPawnNumber();
     bool isBoardCorrect();
+    bool isGameOverForRed();
+    bool isGameOverForBlue();
     bool isGameOver(int x, int y, Field badanyGracz);
     bool czyPozycjaDobra(int x, int y);
     static bool CzyZnalezionoSubstring(string,string);
     void clearWasVisited();
+    bool isBoardPossible();
+    bool canRedWinInOneMoveWithNaive();
+    bool canBlueWinInOneMoveWithNaive();
+    bool canRedWinInTwoMovesWithNaive();
+    bool canBlueWinInTwoMovesWithNaive();
 };
