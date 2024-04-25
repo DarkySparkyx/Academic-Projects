@@ -35,4 +35,8 @@ public:
     bool canBlueWinInOneMoveWithNaive();
     bool canRedWinInTwoMovesWithNaive();
     bool canBlueWinInTwoMovesWithNaive();
+    bool canRedWinInOneMoveWithPerfect();
+    bool canBlueWinInOneMoveWithPerfect();
+    bool canRedWinInTwoMovesWithPerfect();
+    bool canBlueWinInTwoMovesWithPerfect();
 };

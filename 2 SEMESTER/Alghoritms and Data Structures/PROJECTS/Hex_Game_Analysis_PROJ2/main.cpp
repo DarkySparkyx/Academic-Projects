@@ -9,16 +9,14 @@ int main()
     //fstream plik;
     //plik.open("result.txt",ios::out);
     string input;
-    Hex* hex;
+    Hex* hex=nullptr;
     while(getline(cin,input))
     {
         if(Hex::CzyZnalezionoSubstring(input,"---"))
         {
+            if(hex!=nullptr)
+                delete hex;
             hex = new Hex;
-        }
-        else if(input=="")
-        {
-            delete hex;
         }
         else
         {
@@ -112,8 +110,54 @@ int main()
                     cout << "NO" << endl;
                 }
             }
+            else if(input=="CAN_RED_WIN_IN_1_MOVE_WITH_PERFECT_OPPONENT")
+            {
+                if(hex->canRedWinInOneMoveWithPerfect())
+                {
+                    cout << "YES" << endl;
+                }
+                else
+                {
+                    cout << "NO" << endl;
+                }
+            }
+            else if(input=="CAN_BLUE_WIN_IN_1_MOVE_WITH_PERFECT_OPPONENT")
+            {
+                if(hex->canBlueWinInOneMoveWithPerfect())
+                {
+                    cout << "YES" << endl;
+                }
+                else
+                {
+                    cout << "NO" << endl;
+                }
+            }
+            else if(input=="CAN_RED_WIN_IN_2_MOVES_WITH_PERFECT_OPPONENT")
+            {
+                if(hex->canRedWinInTwoMovesWithPerfect())
+                {
+                    cout << "YES" << endl;
+                }
+                else
+                {
+                    cout << "NO" << endl;
+                }
+            }
+            else if(input=="CAN_BLUE_WIN_IN_2_MOVES_WITH_PERFECT_OPPONENT")
+            {
+                if(hex->canBlueWinInTwoMovesWithPerfect())
+                {
+                    cout << "YES" << endl;
+                }
+                else
+                {
+                    cout << "NO" << endl;
+                }
+            }
         }
 
     }
     return 0;
 }
+
+

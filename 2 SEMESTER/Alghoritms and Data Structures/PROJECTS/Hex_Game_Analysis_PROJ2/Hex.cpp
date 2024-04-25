@@ -240,6 +240,7 @@ bool Hex::isBoardPossible()
                         board[j][i]=EMPTY;
                         if(!isGameOverForRed())
                         {
+                            board[j][i]=RED;
                             return true;
                         }
                         board[j][i]=RED;
@@ -263,6 +264,7 @@ bool Hex::isBoardPossible()
                         board[j][i]=EMPTY;
                         if(!isGameOverForBlue())
                         {
+                            board[j][i]=BLUE;
                             return true;
                         }
                         board[j][i]=BLUE;
@@ -284,18 +286,41 @@ bool Hex::isBoardPossible()
 
 bool Hex::canRedWinInOneMoveWithNaive()
 {
+    if(!isBoardPossible())
+    {
+        return false;
+    }
+    if(isGameOverForBlue() || isGameOverForRed())
+    {
+        return false;
+    }
+    if(redPawnNumber==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<1)
+        {
+            return false;
+        }
+    }
+    if(redPawnNumber-1==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<2)
+        {
+            return false;
+        }
+    }
     for(int i=0; i<boardSize; i++)
     {
         for(int j=0; j<boardSize; j++)
         {
-            if(board[j][i]==EMPTY)
+            if(board[i][j]==EMPTY)
             {
-                board[j][i]=RED;
+                board[i][j]=RED;
                 if(isGameOverForRed())
                 {
+                    board[i][j]=EMPTY;
                     return true;
                 }
-                board[j][i]=EMPTY;
+                board[i][j]=EMPTY;
             }
         }
     }
@@ -304,18 +329,41 @@ bool Hex::canRedWinInOneMoveWithNaive()
 
 bool Hex::canBlueWinInOneMoveWithNaive()
 {
+    if(!isBoardPossible())
+    {
+        return false;
+    }
+    if(isGameOverForBlue() || isGameOverForRed())
+    {
+        return false;
+    }
+    if(redPawnNumber-1==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<1)
+        {
+            return false;
+        }
+    }
+    if(redPawnNumber==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<2)
+        {
+            return false;
+        }
+    }
     for(int i=0; i<boardSize; i++)
     {
         for(int j=0; j<boardSize; j++)
         {
-            if(board[j][i]==EMPTY)
+            if(board[i][j]==EMPTY)
             {
-                board[j][i]=BLUE;
+                board[i][j]=BLUE;
                 if(isGameOverForBlue())
                 {
+                    board[i][j]=EMPTY;
                     return true;
                 }
-                board[j][i]=EMPTY;
+                board[i][j]=EMPTY;
             }
         }
     }
@@ -324,27 +372,41 @@ bool Hex::canBlueWinInOneMoveWithNaive()
 
 bool Hex::canRedWinInTwoMovesWithNaive()
 {
-    Field pierwszy;
-    Field drugi;
-
+    if(!isBoardPossible())
+    {
+        return false;
+    }
+    if(isGameOverForBlue() || isGameOverForRed())
+    {
+        return false;
+    }
     if(redPawnNumber==bluePawnNumber)
     {
-        pierwszy=RED;
-        drugi=BLUE;
+        if(boardSize*boardSize-getPawnNumber()<3)
+        {
+            return false;
+        }
     }
-    else
+    if(redPawnNumber-1==bluePawnNumber)
     {
-        pierwszy=BLUE;
-        drugi=RED;
+        if(boardSize*boardSize-getPawnNumber()<4)
+        {
+            return false;
+        }
     }
-
     for(int i=0; i<boardSize; i++)
     {
         for(int j=0; j<boardSize; j++)
         {
-            if(board[j][i]==EMPTY)
+            if(board[i][j]==EMPTY)
             {
-
+                board[i][j]=RED;
+                if(canRedWinInOneMoveWithNaive())
+                {
+                    board[i][j]=EMPTY;
+                    return true;
+                }
+                board[i][j]=EMPTY;
             }
         }
     }
@@ -353,19 +415,264 @@ bool Hex::canRedWinInTwoMovesWithNaive()
 
 bool Hex::canBlueWinInTwoMovesWithNaive()
 {
+    if(!isBoardPossible())
+    {
+        return false;
+    }
+    if(isGameOverForBlue() || isGameOverForRed())
+    {
+        return false;
+    }
+    if(redPawnNumber-1==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<3)
+        {
+            return false;
+        }
+    }
+    if(redPawnNumber==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<4)
+        {
+            return false;
+        }
+    }
     for(int i=0; i<boardSize; i++)
     {
         for(int j=0; j<boardSize; j++)
         {
-            if(board[j][i]==EMPTY)
+            if(board[i][j]==EMPTY)
             {
-                board[j][i]=BLUE;
+                board[i][j]=BLUE;
                 if(canBlueWinInOneMoveWithNaive())
                 {
+                    board[i][j]=EMPTY;
                     return true;
                 }
-                board[j][i]=EMPTY;
+                board[i][j]=EMPTY;
             }
+        }
+    }
+    return false;
+}
+
+bool Hex::canRedWinInOneMoveWithPerfect()
+{
+    int liczbaOpcji=0;
+    if(!isBoardPossible())
+    {
+        return false;
+    }
+    if(isGameOverForBlue() || isGameOverForRed())
+    {
+        return false;
+    }
+    if(redPawnNumber==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<1)
+        {
+            return false;
+        }
+    }
+    if(redPawnNumber-1==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<2)
+        {
+            return false;
+        }
+    }
+    for(int i=0; i<boardSize; i++)
+    {
+        for(int j=0; j<boardSize; j++)
+        {
+            if(board[i][j]==EMPTY)
+            {
+                board[i][j]=RED;
+                if(isGameOverForRed())
+                {
+                    liczbaOpcji++;
+                }
+                board[i][j]=EMPTY;
+            }
+        }
+    }
+    if(redPawnNumber==bluePawnNumber)
+    {
+        if(liczbaOpcji>0)
+        {
+            return true;
+        }
+    }
+    if(redPawnNumber-1==bluePawnNumber)
+    {
+        if(liczbaOpcji>1)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Hex::canBlueWinInOneMoveWithPerfect()
+{
+    int liczbaOpcji=0;
+    if(!isBoardPossible())
+    {
+        return false;
+    }
+    if(isGameOverForBlue() || isGameOverForRed())
+    {
+        return false;
+    }
+    if(redPawnNumber-1==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<1)
+        {
+            return false;
+        }
+    }
+    if(redPawnNumber==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<2)
+        {
+            return false;
+        }
+    }
+    for(int i=0; i<boardSize; i++)
+    {
+        for(int j=0; j<boardSize; j++)
+        {
+            if(board[i][j]==EMPTY)
+            {
+                board[i][j]=BLUE;
+                if(isGameOverForBlue())
+                {
+                    liczbaOpcji++;
+                }
+                board[i][j]=EMPTY;
+            }
+        }
+    }
+    if(redPawnNumber-1==bluePawnNumber)
+    {
+        if(liczbaOpcji>0)
+        {
+            return true;
+        }
+    }
+    if(redPawnNumber==bluePawnNumber)
+    {
+        if(liczbaOpcji>1)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Hex::canRedWinInTwoMovesWithPerfect()
+{
+    int liczbaOpcji=0;
+    if(!isBoardPossible())
+    {
+        return false;
+    }
+    if(isGameOverForBlue() || isGameOverForRed())
+    {
+        return false;
+    }
+    if(redPawnNumber==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<3)
+        {
+            return false;
+        }
+    }
+    if(redPawnNumber-1==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<4)
+        {
+            return false;
+        }
+    }
+    for(int i=0;i<boardSize;i++)
+    {
+        for(int j=0;j<boardSize;j++)
+        {
+            board[i][j]=RED;
+            if(canRedWinInOneMoveWithPerfect())
+            {
+                liczbaOpcji++;
+            }
+            board[i][j]=EMPTY;
+        }
+    }
+    if(redPawnNumber==bluePawnNumber)
+    {
+        if(liczbaOpcji>1)
+        {
+            return true;
+        }
+    }
+    if(redPawnNumber-1==bluePawnNumber)
+    {
+        if(liczbaOpcji>2)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Hex::canBlueWinInTwoMovesWithPerfect()
+{
+    int liczbaOpcji=0;
+    if(!isBoardPossible())
+    {
+        return false;
+    }
+    if(isGameOverForBlue() || isGameOverForRed())
+    {
+        return false;
+    }
+    if(redPawnNumber-1==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<3)
+        {
+            return false;
+        }
+    }
+    if(redPawnNumber==bluePawnNumber)
+    {
+        if(boardSize*boardSize-getPawnNumber()<4)
+        {
+            return false;
+        }
+    }
+    for(int i=0;i<boardSize;i++)
+    {
+        for(int j=0;j<boardSize;j++)
+        {
+            board[i][j]=BLUE;
+            if(canBlueWinInOneMoveWithPerfect())
+            {
+                liczbaOpcji++;
+            }
+            board[i][j]=EMPTY;
+        }
+    }
+    if(redPawnNumber-1==bluePawnNumber)
+    {
+        if(liczbaOpcji>1)
+        {
+            return true;
+        }
+    }
+    if(redPawnNumber==bluePawnNumber)
+    {
+        if(liczbaOpcji>2)
+        {
+            return true;
         }
     }
     return false;

@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1713984837 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\hex_game_analysis_proj2\hex.cpp
+1714072072 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\hex_game_analysis_proj2\hex.cpp
 	"Hex.h"
 	<string>
 
-1713974842 c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\hex_game_analysis_proj2\hex.h
+1714072771 c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\hex_game_analysis_proj2\hex.h
 	<iostream>
 	<algorithm>
 
-1713984933 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\hex_game_analysis_proj2\main.cpp
+1714072757 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\hex_game_analysis_proj2\main.cpp
 	<iostream>
 	<string>
 	"Hex.h"
