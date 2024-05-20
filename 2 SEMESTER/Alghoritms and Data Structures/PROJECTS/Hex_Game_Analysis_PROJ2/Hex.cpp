@@ -189,34 +189,32 @@ void Hex::clearWasVisited()
 
 bool Hex::isGameOverForRed()
 {
-    if(isBoardCorrect())
+
+    for(int i=0; i<boardSize; i++)
     {
-        for(int i=0; i<boardSize; i++)
+        if(isGameOver(0,i,RED))
         {
-            if(isGameOver(0,i,RED))
-            {
-                clearWasVisited();
-                return true;
-            }
+            clearWasVisited();
+            return true;
         }
     }
+
     clearWasVisited();
     return false;
 }
 
 bool Hex::isGameOverForBlue()
 {
-    if(isBoardCorrect())
+
+    for(int i=0; i<getBoardSize(); i++)
     {
-        for(int i=0; i<getBoardSize(); i++)
+        if(isGameOver(i,boardSize-1,BLUE))
         {
-            if(isGameOver(i,boardSize-1,BLUE))
-            {
-                clearWasVisited();
-                return true;
-            }
+            clearWasVisited();
+            return true;
         }
     }
+
     clearWasVisited();
     return false;
 }
@@ -456,30 +454,59 @@ bool Hex::canBlueWinInTwoMovesWithNaive()
     return false;
 }
 
-bool Hex::canRedWinInOneMoveWithPerfect()
+Field Hex::whoIsNext()
 {
-    int liczbaOpcji=0;
-    if(!isBoardPossible())
-    {
-        return false;
-    }
-    if(isGameOverForBlue() || isGameOverForRed())
-    {
-        return false;
-    }
     if(redPawnNumber==bluePawnNumber)
     {
-        if(boardSize*boardSize-getPawnNumber()<1)
-        {
-            return false;
-        }
+        return RED;
     }
-    if(redPawnNumber-1==bluePawnNumber)
+    else
     {
-        if(boardSize*boardSize-getPawnNumber()<2)
-        {
-            return false;
-        }
+        return BLUE;
+    }
+}
+
+void Hex::increaseColorPawnNumber(Field badanyGracz)
+{
+    if(badanyGracz==RED)
+    {
+        redPawnNumber++;
+    }
+    else
+    {
+        bluePawnNumber++;
+    }
+}
+
+void Hex::decreaseColorPawnNumber(Field badanyGracz)
+{
+    if(badanyGracz==RED)
+    {
+        redPawnNumber--;
+    }
+    else
+    {
+        bluePawnNumber--;
+    }
+}
+
+bool Hex::isGameOverForPlayer(Field badanyGracz)
+{
+    if(badanyGracz==RED)
+    {
+        return isGameOverForRed();
+    }
+    else
+    {
+        return isGameOverForBlue();
+    }
+}
+
+bool Hex::Player(Field badanyGracz)
+{
+    if(isGameOverForRed() || isGameOverForBlue())
+    {
+        return false;
     }
     for(int i=0; i<boardSize; i++)
     {
@@ -487,56 +514,39 @@ bool Hex::canRedWinInOneMoveWithPerfect()
         {
             if(board[i][j]==EMPTY)
             {
-                board[i][j]=RED;
-                if(isGameOverForRed())
+                increaseColorPawnNumber(badanyGracz);
+                board[i][j]=badanyGracz;
+                if(isGameOverForPlayer(badanyGracz))
                 {
-                    liczbaOpcji++;
+                    board[i][j]=EMPTY;
+                    decreaseColorPawnNumber(badanyGracz);
+                    return true;
                 }
                 board[i][j]=EMPTY;
+                decreaseColorPawnNumber(badanyGracz);
             }
-        }
-    }
-    if(redPawnNumber==bluePawnNumber)
-    {
-        if(liczbaOpcji>0)
-        {
-            return true;
-        }
-    }
-    if(redPawnNumber-1==bluePawnNumber)
-    {
-        if(liczbaOpcji>1)
-        {
-            return true;
         }
     }
     return false;
 }
 
-bool Hex::canBlueWinInOneMoveWithPerfect()
+Field Hex::getEnemy(Field badanyGracz)
 {
-    int liczbaOpcji=0;
-    if(!isBoardPossible())
+    if(badanyGracz==RED)
+    {
+        return BLUE;
+    }
+    else
+    {
+        return RED;
+    }
+}
+
+bool Hex::EnemyPlayer(Field badanyGracz)
+{
+    if(isGameOverForRed() || isGameOverForBlue())
     {
         return false;
-    }
-    if(isGameOverForBlue() || isGameOverForRed())
-    {
-        return false;
-    }
-    if(redPawnNumber-1==bluePawnNumber)
-    {
-        if(boardSize*boardSize-getPawnNumber()<1)
-        {
-            return false;
-        }
-    }
-    if(redPawnNumber==bluePawnNumber)
-    {
-        if(boardSize*boardSize-getPawnNumber()<2)
-        {
-            return false;
-        }
     }
     for(int i=0; i<boardSize; i++)
     {
@@ -544,136 +554,97 @@ bool Hex::canBlueWinInOneMoveWithPerfect()
         {
             if(board[i][j]==EMPTY)
             {
-                board[i][j]=BLUE;
-                if(isGameOverForBlue())
+                increaseColorPawnNumber(badanyGracz);
+                board[i][j]=badanyGracz;
+                if(isGameOverForPlayer(badanyGracz))
                 {
-                    liczbaOpcji++;
+                    board[i][j]=getEnemy(badanyGracz);
+                    decreaseColorPawnNumber(badanyGracz);
+                    increaseColorPawnNumber(getEnemy(badanyGracz));
+                    bool result=Player(badanyGracz);
+                    decreaseColorPawnNumber(getEnemy(badanyGracz));
+                    board[i][j]=EMPTY;
+                    return result;
                 }
                 board[i][j]=EMPTY;
+                decreaseColorPawnNumber(badanyGracz);
             }
-        }
-    }
-    if(redPawnNumber-1==bluePawnNumber)
-    {
-        if(liczbaOpcji>0)
-        {
-            return true;
-        }
-    }
-    if(redPawnNumber==bluePawnNumber)
-    {
-        if(liczbaOpcji>1)
-        {
-            return true;
         }
     }
     return false;
 }
 
-bool Hex::canRedWinInTwoMovesWithPerfect()
+bool Hex::QuickCheck()
 {
-    int liczbaOpcji=0;
     if(!isBoardPossible())
     {
         return false;
     }
-    if(isGameOverForBlue() || isGameOverForRed())
+    if(isGameOverForRed())
     {
         return false;
     }
-    if(redPawnNumber==bluePawnNumber)
+    if(isGameOverForBlue())
     {
-        if(boardSize*boardSize-getPawnNumber()<3)
-        {
-            return false;
-        }
+        return false;
     }
-    if(redPawnNumber-1==bluePawnNumber)
+    return true;
+}
+
+bool Hex::PlayerEnemyPlayer(Field badanyGracz)
+{
+
+    if(isGameOverForRed() || isGameOverForBlue())
     {
-        if(boardSize*boardSize-getPawnNumber()<4)
-        {
-            return false;
-        }
+        return false;
     }
-    for(int i=0;i<boardSize;i++)
+    for(int i=0; i<boardSize; i++)
     {
-        for(int j=0;j<boardSize;j++)
+        for(int j=0; j<boardSize; j++)
         {
-            board[i][j]=RED;
-            if(canRedWinInOneMoveWithPerfect())
+            if(board[i][j]==EMPTY)
             {
-                liczbaOpcji++;
+                increaseColorPawnNumber(badanyGracz);
+                board[i][j]=badanyGracz;
+                if(EnemyPlayer(badanyGracz))
+                {
+                    board[i][j]=EMPTY;
+                    decreaseColorPawnNumber(badanyGracz);
+                    return true;
+                }
+                board[i][j]=EMPTY;
+                decreaseColorPawnNumber(badanyGracz);
             }
-            board[i][j]=EMPTY;
-        }
-    }
-    if(redPawnNumber==bluePawnNumber)
-    {
-        if(liczbaOpcji>1)
-        {
-            return true;
-        }
-    }
-    if(redPawnNumber-1==bluePawnNumber)
-    {
-        if(liczbaOpcji>2)
-        {
-            return true;
         }
     }
     return false;
 }
 
-bool Hex::canBlueWinInTwoMovesWithPerfect()
+bool Hex::EnemyPlayerEnemyPlayer(Field badanyGracz)
 {
-    int liczbaOpcji=0;
-    if(!isBoardPossible())
+    if(isGameOverForRed() || isGameOverForBlue())
     {
         return false;
     }
-    if(isGameOverForBlue() || isGameOverForRed())
+    for(int i=0; i<boardSize; i++)
     {
-        return false;
-    }
-    if(redPawnNumber-1==bluePawnNumber)
-    {
-        if(boardSize*boardSize-getPawnNumber()<3)
+        for(int j=0; j<boardSize; j++)
         {
-            return false;
-        }
-    }
-    if(redPawnNumber==bluePawnNumber)
-    {
-        if(boardSize*boardSize-getPawnNumber()<4)
-        {
-            return false;
-        }
-    }
-    for(int i=0;i<boardSize;i++)
-    {
-        for(int j=0;j<boardSize;j++)
-        {
-            board[i][j]=BLUE;
-            if(canBlueWinInOneMoveWithPerfect())
+            if(board[i][j]==EMPTY)
             {
-                liczbaOpcji++;
+                increaseColorPawnNumber(getEnemy(badanyGracz));
+                board[i][j]=getEnemy(badanyGracz);
+                if(!PlayerEnemyPlayer(badanyGracz))
+                {
+                    board[i][j]=EMPTY;
+                    decreaseColorPawnNumber(getEnemy(badanyGracz));
+                    return false;
+                }
+                board[i][j]=EMPTY;
+                decreaseColorPawnNumber(getEnemy(badanyGracz));
             }
-            board[i][j]=EMPTY;
         }
     }
-    if(redPawnNumber-1==bluePawnNumber)
-    {
-        if(liczbaOpcji>1)
-        {
-            return true;
-        }
-    }
-    if(redPawnNumber==bluePawnNumber)
-    {
-        if(liczbaOpcji>2)
-        {
-            return true;
-        }
-    }
-    return false;
+    return true;
 }
+

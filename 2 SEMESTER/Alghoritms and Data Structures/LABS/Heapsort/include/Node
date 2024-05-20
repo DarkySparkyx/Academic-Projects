@@ -1,0 +1,16 @@
+#ifndef NODE_
+#define NODE_
+
+
+class Node
+{
+    public:
+        Node();
+        virtual ~Node();
+
+    protected:
+
+    private:
+};
+
+#endif // NODE_

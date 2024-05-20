@@ -1,0 +1,11 @@
+#include "Node."
+
+Node::Node()
+{
+    //ctor
+}
+
+Node::~Node()
+{
+    //dtor
+}

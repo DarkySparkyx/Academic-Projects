@@ -41,11 +41,11 @@ int main()
             }
             else if(input=="IS_GAME_OVER")
             {
-                if(hex->isGameOverForRed())
+                if(hex->isBoardCorrect() && hex->isGameOverForRed())
                 {
                     printf("YES RED\n");
                 }
-                else if(hex->isGameOverForBlue())
+                else if(hex->isBoardCorrect() && hex->isGameOverForBlue())
                 {
                     printf("YES BLUE\n");
                 }
@@ -112,48 +112,105 @@ int main()
             }
             else if(input=="CAN_RED_WIN_IN_1_MOVE_WITH_PERFECT_OPPONENT")
             {
-                if(hex->canRedWinInOneMoveWithPerfect())
+                if(hex->whoIsNext()==RED)
                 {
-                    cout << "YES" << endl;
+                    if(hex->QuickCheck() && hex->Player(RED))
+                    {
+                        cout << "YES" << endl;
+                    }
+                    else
+                    {
+                        cout << "NO" << endl;
+                    }
                 }
                 else
                 {
-                    cout << "NO" << endl;
+                    if(hex->QuickCheck() && hex->EnemyPlayer(RED))
+                    {
+                        cout << "YES" << endl;
+                    }
+                    else
+                    {
+                        cout << "NO" << endl;
+                    }
                 }
             }
             else if(input=="CAN_BLUE_WIN_IN_1_MOVE_WITH_PERFECT_OPPONENT")
             {
-                if(hex->canBlueWinInOneMoveWithPerfect())
+                if(hex->whoIsNext()==BLUE)
                 {
-                    cout << "YES" << endl;
+                    if(hex->QuickCheck() && hex->Player(BLUE))
+                    {
+                        cout << "YES" << endl;
+                    }
+                    else
+                    {
+                        cout << "NO" << endl;
+                    }
                 }
                 else
                 {
-                    cout << "NO" << endl;
+                    if(hex->QuickCheck() && hex->EnemyPlayer(BLUE))
+                    {
+                        cout << "YES" << endl;
+                    }
+                    else
+                    {
+                        cout << "NO" << endl;
+                    }
                 }
             }
             else if(input=="CAN_RED_WIN_IN_2_MOVES_WITH_PERFECT_OPPONENT")
             {
-                if(hex->canRedWinInTwoMovesWithPerfect())
+                if(hex->whoIsNext()==RED)
                 {
-                    cout << "YES" << endl;
+                    if(hex->QuickCheck() && hex->PlayerEnemyPlayer(RED))
+                    {
+                        cout << "YES" << endl;
+                    }
+                    else
+                    {
+                        cout << "NO" << endl;
+                    }
                 }
                 else
                 {
-                    cout << "NO" << endl;
+                    if(hex->QuickCheck() && hex->EnemyPlayerEnemyPlayer(RED))
+                    {
+                        cout << "YES" << endl;
+                    }
+                    else
+                    {
+                        cout << "NO" << endl;
+                    }
                 }
             }
             else if(input=="CAN_BLUE_WIN_IN_2_MOVES_WITH_PERFECT_OPPONENT")
             {
-                if(hex->canBlueWinInTwoMovesWithPerfect())
+                if(hex->whoIsNext()==BLUE)
                 {
-                    cout << "YES" << endl;
+                    if(hex->QuickCheck() && hex->PlayerEnemyPlayer(BLUE))
+                    {
+                        cout << "YES" << endl;
+                    }
+                    else
+                    {
+                        cout << "NO" << endl;
+                    }
                 }
                 else
                 {
-                    cout << "NO" << endl;
+                    if(hex->QuickCheck() && hex->EnemyPlayerEnemyPlayer(BLUE))
+                    {
+                        cout << "YES" << endl;
+                    }
+                    else
+                    {
+                        cout << "NO" << endl;
+                    }
                 }
             }
+
         }
 
     }

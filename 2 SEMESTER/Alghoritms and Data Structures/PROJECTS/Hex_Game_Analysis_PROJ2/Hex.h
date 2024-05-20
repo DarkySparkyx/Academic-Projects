@@ -35,8 +35,16 @@ public:
     bool canBlueWinInOneMoveWithNaive();
     bool canRedWinInTwoMovesWithNaive();
     bool canBlueWinInTwoMovesWithNaive();
-    bool canRedWinInOneMoveWithPerfect();
-    bool canBlueWinInOneMoveWithPerfect();
-    bool canRedWinInTwoMovesWithPerfect();
-    bool canBlueWinInTwoMovesWithPerfect();
+
+
+    Field whoIsNext();
+    Field getEnemy(Field badanyGracz);
+    bool QuickCheck();
+    void increaseColorPawnNumber(Field badanyGracz);
+    void decreaseColorPawnNumber(Field badanyGracz);
+    bool isGameOverForPlayer(Field badanyGracz);
+    bool Player(Field badanyGracz);
+    bool EnemyPlayer(Field badanyGracz);
+    bool PlayerEnemyPlayer(Field badanyGracz);
+    bool EnemyPlayerEnemyPlayer(Field badanyGracz);
 };

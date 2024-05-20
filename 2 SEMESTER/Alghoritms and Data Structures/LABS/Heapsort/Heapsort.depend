@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1714128166 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\labs\heapsort\main.cpp
+	<iostream>
+	<math.h>
+	<queue>
+
