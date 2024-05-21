@@ -1,37 +1,39 @@
 package Organisms;
 
 import Game.World;
-import Organisms.Animals.Animal;
 
 import java.awt.*;
+import java.io.Serializable;
 
-public class Organism
-{
+public class Organism implements Serializable {
+
     String symbol;
     String name;
     Color color;
-    int sila;
+    int strength;
     int initative;
-    int speed;
+    protected int speed;
     protected World world;
     protected int x;
     protected int y;
-    protected Organism(String symbol, String name, Color color, int sila, int initative, int speed, World world,int x,int y)
+    protected boolean alive;
+
+    protected Organism(String symbol, String name, Color color, int strength, int initative, int speed, World world,int x,int y)
     {
         this.symbol=symbol;
         this.name=name;
         this.color=color;
-        this.sila=sila;
+        this.strength =strength;
         this.initative =initative;
         this.speed =speed;
         this.world=world;
         this.x=x;
         this.y=y;
+        alive=true;
     }
-    public void Action()
-    {
 
-    }
+
+
     public int getX()
     {
         return x;
@@ -40,15 +42,69 @@ public class Organism
     {
         return y;
     }
+    public int getSpeed() {return speed;}
     public Color getColor()
     {
         return color;
+    }
+    public String getName()
+    {
+        return name;
     }
 
     public String getSymbol() {
         return symbol;
     }
 
-    public void collision(Organism attacker) {
+    public void Action() {
+    }
+    public void Collision(Organism attacker) {
+    }
+    public void Breeding() {
+    }
+    public Organism getChild(int x, int y) {return null;}
+
+    public int getStrength()
+    {
+        return strength;
+    }
+    public boolean isAlive()
+    {
+        return alive;
+    }
+    public void setXY(int x, int y)
+    {
+        this.x=x;
+        this.y=y;
+    }
+    public void kill()
+    {
+        this.setXY(0,0);
+        this.alive=false;
+    }
+    public void setSpeed(int val)
+    {
+        speed=val;
+    }
+
+    public int getInitative()
+    {
+        return initative;
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.name+"("+this.getX()+","+this.getY()+")";
+    }
+
+    public void setStrength(int val)
+    {
+        strength=val;
+    }
+
+    public void setWorldRefference(World w)
+    {
+        world=w;
     }
 }

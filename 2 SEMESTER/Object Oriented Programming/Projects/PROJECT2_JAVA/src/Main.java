@@ -1,17 +1,33 @@
 import Game.*;
 
 import javax.swing.*;
-import java.util.Scanner;
+import java.awt.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 public class Main {
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException, ClassNotFoundException
     {
-       World gra = new World();
-        Scanner test = new Scanner(System.in);
-        test.nextLine();
-        gra.nextRound();
-        test.nextLine();
-        gra.nextRound();
-        test.nextLine();
+        String data = JOptionPane.showInputDialog("Type 1 for new game. Type 2 to Load saved game");
+        int choice = Integer.parseInt(data);
+        if(choice == 1)
+        {
+            data = JOptionPane.showInputDialog("Width");
+            int width = Integer.parseInt(data);
+            int height = Integer.parseInt(JOptionPane.showInputDialog("Height"));
+            World w = new World(width, height);
+        }
+        else
+        {
+            FileInputStream fileInputStream
+                    = new FileInputStream("yourfile2.txt");
+            ObjectInputStream objectInputStream
+                    = new ObjectInputStream(fileInputStream);
+            World gra = (World) objectInputStream.readObject();
+            objectInputStream.close();
+            World test = new World(gra);
+        }
+
     }
 }
