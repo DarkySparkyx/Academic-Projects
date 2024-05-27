@@ -20,6 +20,23 @@ public class Organism implements Serializable {
 
     protected Organism(String symbol, String name, Color color, int strength, int initative, int speed, World world,int x,int y)
     {
+        if(x==0 && y==0)
+        {
+            int newX=world.getRandomNumber(world.getWidth())+1;
+            int newY=world.getRandomNumber(world.getHeight())+1;
+            while(world.IsPlaceTaken(newX,newY) || newX==0 || newY==0)
+            {
+                newX=world.getRandomNumber(world.getWidth())+1;
+                newY=world.getRandomNumber(world.getHeight())+1;
+            }
+            this.x=newX;
+            this.y=newY;
+        }
+        else
+        {
+            this.x=x;
+            this.y=y;
+        }
         this.symbol=symbol;
         this.name=name;
         this.color=color;
@@ -27,12 +44,8 @@ public class Organism implements Serializable {
         this.initative =initative;
         this.speed =speed;
         this.world=world;
-        this.x=x;
-        this.y=y;
         alive=true;
     }
-
-
 
     public int getX()
     {

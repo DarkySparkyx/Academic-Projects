@@ -39,16 +39,16 @@ public class World implements Serializable {
         human = new Human(this, rand.nextInt(width) + 1, rand.nextInt(height) + 1);
         Organisms = new ArrayList<>();
         Organisms.add(human);
-        Organisms.add(new Sheep(this, rand.nextInt(width) + 1, rand.nextInt(height) + 1));
-        Organisms.add(new Turtle(this, rand.nextInt(width) + 1, rand.nextInt(height) + 1));
-        Organisms.add(new Antelope(this, rand.nextInt(width) + 1, rand.nextInt(height) + 1));
-        Organisms.add(new Fox(this, rand.nextInt(width) + 1, rand.nextInt(height) + 1));
-        Organisms.add(new Wolf(this, rand.nextInt(width) + 1, rand.nextInt(height) + 1));
-        Organisms.add(new Grass(this, rand.nextInt(width) + 1, rand.nextInt(height) + 1));
-        Organisms.add(new Dandelion(this, rand.nextInt(width) + 1, rand.nextInt(height) + 1));
-        Organisms.add(new Berry(this, rand.nextInt(width) + 1, rand.nextInt(height) + 1));
-        Organisms.add(new PineBorscht(this, rand.nextInt(width) + 1, rand.nextInt(height) + 1));
-        Organisms.add(new Guarana(this, rand.nextInt(width) + 1, rand.nextInt(height) + 1));
+        Organisms.add(new Sheep(this,0,0));
+        Organisms.add(new Turtle(this, 0,0));
+        Organisms.add(new Antelope(this, 0,0));
+        Organisms.add(new Fox(this, 0,0));
+        Organisms.add(new Wolf(this, 0,0));
+        Organisms.add(new Grass(this, 0,0));
+        Organisms.add(new Dandelion(this, 0,0));
+        Organisms.add(new Berry(this, 0,0));
+        Organisms.add(new PineBorscht(this, 0,0));
+        Organisms.add(new Guarana(this, 0,0));
         screen = new MyFrame(this);
         garbageCollector();
         System.out.println("Koniec konstruktora");
@@ -189,5 +189,14 @@ public class World implements Serializable {
     public MyFrame getScreen()
     {
         return screen;
+    }
+
+    public int getWidth()
+    {
+        return width;
+    }
+    public int getHeight()
+    {
+        return height;
     }
 }

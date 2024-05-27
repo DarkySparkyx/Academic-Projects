@@ -11,7 +11,7 @@ public class Human extends Animal implements Serializable {
     public int roundsLeft;
     public int cooldown;
     public Human(World world, int x, int y) {
-        super("YOU", "Human", new Color(226, 36, 255), 5, 4, 1, world,x,y);
+        super("H", "Human", new Color(226, 36, 255), 5, 4, 1, world,x,y);
         isSkillActive=false;
         roundsLeft=0;
         cooldown=0;

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1716822175 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\graphs_proj3\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
