@@ -1,6 +1,27 @@
 # depslib dependency file v1.0
-1716822175 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\graphs_proj3\main.cpp
+1716915329 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\graphs_proj3\main.cpp
 	<iostream>
-	<vector>
+	"Graph.h"
+
+1716916677 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\graphs_proj3\graph.cpp
+	<iostream>
+	"Graph.h"
 	<algorithm>
+
+1716916981 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\graphs_proj3\vertex.cpp
+	<iostream>
+	"Vertex.h"
+
+1716916952 c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\graphs_proj3\vertex.h
+	<iostream>
+
+1716916672 c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\graphs_proj3\graph.h
+	<iostream>
+	"Vertex.h"
+
+1716898116 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\graphs_proj3\heapsort.cpp
+	<iostream>
+
+1716898116 c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\graphs_proj3\heapsort.cpp
+	<iostream>
 

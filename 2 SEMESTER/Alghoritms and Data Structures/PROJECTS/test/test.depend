@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1716900187 source:c:\users\mjasi\desktop\academic-projects\2 semester\alghoritms and data structures\projects\test\main.cpp
+	<iostream>
+	<math.h>
+	<queue>
+
