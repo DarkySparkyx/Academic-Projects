@@ -1,0 +1,18 @@
+Manual for "Music Manager 1.0" by Michal Jasiak s197577
+
+Options:
+-h Show this help
+-v Get information about version
+-s Stop playing song and clear the queue
+-c Clear queue
+-l Show list of all downloaded songs
+-a Delete all downloaded songs
+-k Skip the song that is currently being played
+-p [TITLE] - play desired song from playlist directory. If song isn't there it will search for it in the web, but to play it you need to call this function again with correct name
+-r [TITLE] - only searches and downloads chosen track. It doesn't play it so you can use it while listening to other tracks.
+-d [FILE_NAME] - download songs from links saved in file. Only text files! Each link must be in seperate line! Only youtube links will be processed.
+-q [TITLE] - Add the song to music queue. Only possible for downloaded tracks. It will return an error if song isn't downloaded
+-o [LINK] - Download song from provided link. Only youtube links!
+-e [TITLE] - Deletes a single track
+
+For license information read the LICENSE file
