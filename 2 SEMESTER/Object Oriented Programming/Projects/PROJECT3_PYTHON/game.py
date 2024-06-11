@@ -6,6 +6,8 @@ from Organisms.Animals.antelope import Antelope
 
 from Organisms.Animals.fox import Fox
 from Organisms.Animals.human import Human
+from Organisms.Animals.sheep import Sheep
+from Organisms.Animals.turtle import Turtle
 from Organisms.Animals.wolf import Wolf
 from Organisms.Plants.berry import Berry
 from Organisms.Plants.dandelion import Dandelion
@@ -23,11 +25,20 @@ class World:
         self.sizeX = sizeX
         self.sizeY = sizeY
         self.organisms = []
-        self.addorganism(Cybersheep(-1, -1, self))
-        self.addorganism(Pineborscht(-1, -1, self))
+        self.addorganism(Wolf(-1,-1,self))
+        self.addorganism(Fox(-1,-1,self))
+        self.addorganism(Human(-1,-1,self))
+        self.addorganism(Sheep(-1,-1,self))
+        self.addorganism(Cybersheep(-1,-1,self))
+        self.addorganism(Turtle(-1,-1,self))
+        self.addorganism(Antelope(-1,-1,self))
+        self.addorganism(Grass(-1,-1,self))
+        self.addorganism(Dandelion(-1,-1,self))
+        self.addorganism(Pineborscht(-1,-1,self))
+        self.addorganism(Berry(-1,-1,self))
+        self.addorganism(Guarana(-1,-1,self))
         self.logs = []
         self.game = game
-
     def findorganismbyposition(self, x, y):
         for o in self.organisms:
             if o.position_x == x and o.position_y == y:
@@ -97,6 +108,7 @@ class Game:
         pygame.display.set_caption('The Game')
         self.screen = pygame.display.set_mode(window_size)
         self.screen.fill(WHITE)
+        self.font = pygame.font.SysFont("Arial", 12)
         pygame.display.flip()
 
     def start(self):

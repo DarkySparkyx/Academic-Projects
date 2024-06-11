@@ -21,7 +21,6 @@ class Organism:
         self.color = color
 
     def action(self):
-        self.world.logs.append("Teraz kolej " + self.tostring())
         newx = self.position_x + random.randint(-1, 1) * self.speed
         newy = self.position_y + random.randint(-1, 1) * self.speed
         while newx == self.position_x and newy == self.position_y or not self.world.ispositiongood(newx, newy):
@@ -47,7 +46,7 @@ class Organism:
                 self.world.logs.append(self.tostring() + " próbował się rozmnożyć z " + attacker.tostring() + ", ale nie ma miejsca na potomka. ")
         else:
             if attacker.strength >= self.strength:
-                if(self.isshielding()):
+                if self.isshielding(attacker):
                     self.world.logs.append(attacker.tostring() + " atakuje " + self.tostring() + " ale ofiara odpiera atak")
                 elif self.isescaping() and self.world.isbreedingpossible(self):
                     attacker.position_x = self.position_x
@@ -64,7 +63,7 @@ class Organism:
                 self.world.logs.append(attacker.tostring() + " natrafil na silniejszego " + self.tostring() + " i zginal.")
                 attacker.kill()
 
-    def isshielding(self):
+    def isshielding(self, attacker):
         return False
     def isescaping(self):
         return False

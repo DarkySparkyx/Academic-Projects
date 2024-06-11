@@ -1,3 +1,5 @@
+import random
+
 from Organisms.Animals.animal import Animal
 
 
@@ -7,3 +9,10 @@ class Antelope(Animal):
 
     def getchild(self, newposition):
         return Antelope(newposition[0], newposition[1], self.world)
+
+    def isescaping(self):
+        i = random.randint(0, 1)
+        if ( i == 1 ):
+            return True
+        else:
+            return False
